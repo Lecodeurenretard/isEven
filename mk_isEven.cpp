@@ -102,7 +102,7 @@ int main(int argc, char *argv[]){
 	script 	<< "def is_even(n : int) -> bool:" 								<< std::endl 
 			<< "\t"
 			<< DOCQUOTES 
-			<< "Checks if the number is even, n must be below " 			<< std::to_string(untilNum) << '.'
+			<< "Checks if the number is even, n must be strictly below " 			<< std::to_string(untilNum) << '.'
 			<< DOCQUOTES 													<< std::endl;
 
 	//making sure n is an int bc Python is a language where staticly type is useless
