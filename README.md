@@ -29,7 +29,7 @@ You can pass from 0 to 3 argument to the program, each has a different purpose:
 |:--------------------:|:-----------------:|:-------------:|:-------------:|:-------------:|
 |    1<sup>st</sup>    | `int` or `string` |  $\emptyset$  | As an integer, represents the number of `if...else`s created (v. [first-example](#first-ex)). If unexpected results when negative.  |   As a string, the scripts allows only `"doc"`, `"-h"` and `"--help"` to display the doc, else it will stop with error code [`EXIT_415`](#exit-codes)   |
 |    2<sup>nd</sup>    |       `int`       |      `-1`     |  As a positive interger, represents the number to test first (v. [second example](#second-ex)).  | As a negative number, the function will not be called at the end |
-|   `--verbose`/`-v`   |    $\emptyset$    |   \emptyset$  |  The program will print in the console its current state  |  |
+|   `--verbose`/`-v`   |    $\emptyset$    |   $\emptyset$  |  The program will print in the console its current state  |  |
 
 
 #### Exit codes
