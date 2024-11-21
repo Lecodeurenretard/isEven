@@ -43,7 +43,8 @@ Here they are:
 ## Build from source
 I personnally use **g++** in order to build my C++ scripts.
 
-To download gcc, [click here](https://gcc.gnu.org/).
+To download gcc for Windows, [click on this direct link](https://github.com/msys2/msys2-installer/releases/download/2024-01-13/msys2-x86_64-20240113.exe).  
+For linux users, you can download gcc with your package manager (_pacman_ on Arch, _apt_ on Debian, etc).
 
 With gcc installed, just run the command:  
 ```
