@@ -48,9 +48,14 @@ For linux users, you can download gcc with your package manager (_pacman_ on Arc
 
 With gcc installed, just run the command:  
 ```
-$ g++ mk_isEven.cpp -o mk_isEven 			# The `-o` flag lets you choose your executable name
+$ g++ mk_isEven.cpp -o mk_isEven.exe 			# The `-o` flag lets you choose your executable name
 ```
-in whatever folder your source code is. You can know run your `mk_isEven` is the executable of the same name.
+in whatever folder your source code is. You can know run your `mk_isEven.exe` is the executable of the same name.
+
+Verify that you have [Python](https://www.python.org/downloads/) installed since the program runs this command when [testing the number](#second-ex):
+```
+$ python3 isEven.py <second argument passed>
+```
 
 ## Examples
 <a name="first-ex"></a> 

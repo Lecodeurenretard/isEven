@@ -1,4 +1,4 @@
-//#include <string>
+#include <cstdint>
 #include <iostream>
 #include <fstream>
 
@@ -34,7 +34,7 @@ void displayVerbose(std::string message, const bool& printVerbose){
 
 int main(int argc, char *argv[]){
 	int toTest(0);			//will test this at the end of the program
-	uint untilNum(1000);	//continues until this number (included)
+	unsigned int untilNum(1000);	//continues until this number (included)
 	const bool printVerbose = (std::string(argv[argc-1]) == "--verbose") 
 							|| (std::string(argv[argc-1]) == "-v");			//is last arg "--verbose"?
 	
@@ -114,7 +114,7 @@ int main(int argc, char *argv[]){
 
 	script	<< "\tif(n == 0):" 												<< std::endl
 	 		<< "\t\treturn True"											<< std::endl;
-	for(uint16_t i = 1; i <= untilNum-1; i++){
+	for(unsigned int i = 1; i <= untilNum-1; i++){
 		if(i%2 == 1){
 			script << "\telif(n == " << std::to_string(i) << "):" 				<< std::endl;
 			script << "\t\treturn False"										<< std::endl;
@@ -132,7 +132,7 @@ int main(int argc, char *argv[]){
 	if(argc >= 3){
 		displayVerbose("Check if should write last part of the code...", printVerbose);
 		
-		uint last_arg;
+		unsigned int last_arg;
 		try{
 			last_arg = std::stoi(argv[2]);
 		}catch(const std::invalid_argument& e){
