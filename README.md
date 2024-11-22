@@ -2,7 +2,7 @@
 
 ## Documentation
 ### In-app doc
-By executing the command; `$ mk_isEven doc`, you can have this documentation (with colors on Linux):
+By executing the command; `$ mk_isEven doc`, you can have this documentation:
 ```
 USAGE:
 	 -'mk_isEven ((+|-)?\d ){0,2}\d?'		  -------->  Write a program that checks if a number is even (the if...else way for maximum efficiency!)
