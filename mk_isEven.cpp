@@ -34,7 +34,7 @@ void displayVerbose(std::string message, const bool& printVerbose){
 
 int main(int argc, char *argv[]){
 	int toTest(0);			//will test this at the end of the program
-	unsigned int untilNum(1000);	//continues until this number (included)
+	uint32_t untilNum(1000);	//continues until this number (included)
 	const bool printVerbose = (std::string(argv[argc-1]) == "--verbose") 
 							|| (std::string(argv[argc-1]) == "-v");			//is last arg "--verbose"?
 	
@@ -47,11 +47,12 @@ int main(int argc, char *argv[]){
 	//handles documentation
 	displayVerbose("Check if should print doc...", printVerbose);
 
+	constexpr uint32_t maxIter(UINT16_MAX);	//The maximum count of iteration allowed
 	std::string firstArg; 
 	if (argc == 1){
 		std::cout << "Enter the amount of tests to write (0 and this max amount counts too) or 'doc' to see the documentation: ";
 		std::cin  >> firstArg;
-	}else{
+	} else {
 		firstArg = std::string(argv[1]);
 	}
 	
@@ -64,7 +65,7 @@ int main(int argc, char *argv[]){
 																																																													<< std::endl
 																																																													<< std::endl
 				 	<< YELLOW_BG << "Parameters:" << COLOR_RESET																																													<< std::endl
-					<< "\t-" << YELLOW_FG << "1st parameter" << COLOR_RESET << " " << MAGENTA_FG << "(int|str)" << COLOR_RESET << " " << CYAN_FG << "== " << " ~" << COLOR_RESET << ": If is an positive interger is passed, the number of tests to use; If is an negative number is passed, prints the default amount." 																<< std::endl
+					<< "\t-" << YELLOW_FG << "1st parameter" << COLOR_RESET << " " << MAGENTA_FG << "(int|str)" << COLOR_RESET << " " << CYAN_FG << "== " << " ~" << COLOR_RESET << ": If is an positive interger is passed, the number of tests to use; If is an negative number is passed, prints the maximum amount (" << maxIter << ")." 																<< std::endl
 					<< "\t-" << YELLOW_FG << "2nd parameter" << COLOR_RESET << " " << MAGENTA_FG << "(int)    " << COLOR_RESET << " " << CYAN_FG << "== " << "-1" << COLOR_RESET << ": If an positive integer (including 0) is passed, the number to test just after creating the python script. \r\nElse it will not include the code to run the function at the end of the script."		<< std::endl
 																																																													<< std::endl
 				 	<< YELLOW_BG << "Exit codes:" << COLOR_RESET																																													<< std::endl
@@ -79,9 +80,12 @@ int main(int argc, char *argv[]){
 	displayVerbose("Setting up vars and opening python script file...", printVerbose);
 
 	try{
-		untilNum = std::stoi(firstArg);
+		if(std::stoi(firstArg) < 0)
+			untilNum = maxIter;
+		else
+			untilNum = std::stoi(firstArg);
 	}catch(const std::invalid_argument& e){
-		std::cerr << RED_BG <<"No conversion could be performed by std::stoi() on the first argument, please input a number.\r\n" << COLOR_RESET;
+		std::cerr << RED_BG <<"No conversion could be performed by std::stoi() on the first argument, please input a number, 'doc' or nothing.\r\n" << COLOR_RESET;
 		return EXIT_415;
 	}catch(const std::out_of_range& e){
 		std::cerr << RED_BG << "Please input a number less than 2^32 (or " << 0xFFFFFFFF << ") for the first argument.\r\n" << COLOR_RESET;
@@ -114,7 +118,7 @@ int main(int argc, char *argv[]){
 
 	script	<< "\tif(n == 0):" 												<< std::endl
 	 		<< "\t\treturn True"											<< std::endl;
-	for(unsigned int i = 1; i <= untilNum-1; i++){
+	for(unsigned int i = 1; i <= untilNum-1 && i < maxIter; i++){
 		if(i%2 == 1){
 			script << "\telif(n == " << std::to_string(i) << "):" 				<< std::endl;
 			script << "\t\treturn False"										<< std::endl;
