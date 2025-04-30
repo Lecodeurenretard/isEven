@@ -5,13 +5,13 @@
 By executing the command; `$ mk_isEven doc`, you can have this documentation:
 ```
 USAGE:
-	 -'mk_isEven ((+|-)?\d ){0,2}\d?'		  -------->  Write a program that checks if a number is even (the if...else way for maximum efficiency!)
-	 -'mk_isEven ((+|-)?\d ){0,2}\d? (--verbose|-v)'  -------->  Same as previous but prints verbose.
-	 -'mk_isEven (doc|-h|--help)'			  -------->  Prints this help and returns EXIT_DOC
-
+	In EBNF (I use the one from this website: https://www.garshol.priv.no/download/text/bnf.html#id2.1. with <> before and after symbol), the program can be called following the symbol `<call>`.
+	call := `mk_isEven, [<number> | "doc" | "-h" | "--help"] <number>? ["--verbose" | "-v"]`
+	number := [+|-] ('0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9')+
 
 Parameters:
-	-1st parameter (int|str) ==  ~: If is an positive interger is passed, the number of tests to use; If is an negative number is passed, prints the default amount.
+	-1st parameter (int) == ~: If is an positive interger is passed, the number of tests to use; If is an negative number is passed, prints the default amount.
+	-1st parameter (str)     : This is an alternate 1st parameter, it prints this help and returns EXIT_DOC.
 	-2nd parameter (int)     == -1: If an positive integer (including 0) is passed, the number to test just after creating the python script. 
 Else it will not include the code to run the function at the end of the script.
 
