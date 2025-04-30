@@ -59,13 +59,14 @@ int main(int argc, char *argv[]){
 
 	if(firstArg == "doc" || firstArg == "-h" || firstArg == "--help"){
 		std::cout 	<< YELLOW_BG << "USAGE:" << COLOR_RESET												<< std::endl
-					<< "\t -" << CODE_STYLE << "'mk_isEven ((+|-)?\\d ){0,2}\\d?'\t\t" 				<< COLOR_RESET 	<<  "  -------->  Write a program that checks if a number is even (the if...else way for maximum efficiency!)"					<< std::endl
-					<< "\t -" << CODE_STYLE << "'mk_isEven ((+|-)?\\d ){0,2}\\d? (--verbose|-v)'" 	<< COLOR_RESET 	<<  "  -------->  Same as previous but prints verbose."																			<< std::endl
-					<< "\t -" << CODE_STYLE << "'mk_isEven (doc|-h|--help)'\t\t\t" 					<< COLOR_RESET 	<<  "  -------->  Prints this help and returns EXIT_DOC" 																		<< std::endl
-																																																													<< std::endl
-																																																													<< std::endl
-				 	<< YELLOW_BG << "Parameters:" << COLOR_RESET																																													<< std::endl
-					<< "\t-" << YELLOW_FG << "1st parameter" << COLOR_RESET << " " << MAGENTA_FG << "(int|str)" << COLOR_RESET << " " << CYAN_FG << "== " << " ~" << COLOR_RESET << ": If is an positive interger is passed, the number of tests to use; If is an negative number is passed, prints the maximum amount (" << maxIter << ")." 																<< std::endl
+					<< "\t -" << "'In EBNF (I use the one from this website: https://www.garshol.priv.no/download/text/bnf.html#id2.1. with <> before and after symbol), the program can be called following the symbol `<call>`.\n" 
+					<< "\t -" << "call :=\t" << CODE_STYLE << "`mk_isEven, [<number> | \"doc\" | \"-h\" | \"--help\"] <number>? [\"--verbose\" | \"-v\"]`\n" 	<< COLOR_RESET
+					<< "\t -" << "number :=\t" << CODE_STYLE <<" [+|-] ('0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9')+\n" 							<< COLOR_RESET
+					<< std::endl
+
+				 	<< YELLOW_BG << "Parameters:\n" << COLOR_RESET
+					<< "\t-" << YELLOW_FG << "1st parameter" << COLOR_RESET << " " << MAGENTA_FG << "(int)" << COLOR_RESET << " " << CYAN_FG << "== " << "~" << COLOR_RESET << ": If is an positive interger is passed, the number of tests to use; If is an negative number is passed, prints the maximum amount (" << maxIter << ")." 																<< std::endl
+					<< "\t-" << YELLOW_FG << "1st parameter" << COLOR_RESET << " " << MAGENTA_FG << "(str)" << COLOR_RESET << "     " << COLOR_RESET << ": This is an alternate 1st parameter, it prints this help and returns EXIT_DOC." 																<< std::endl
 					<< "\t-" << YELLOW_FG << "2nd parameter" << COLOR_RESET << " " << MAGENTA_FG << "(int)    " << COLOR_RESET << " " << CYAN_FG << "== " << "-1" << COLOR_RESET << ": If an positive integer (including 0) is passed, the number to test just after creating the python script. \r\nElse it will not include the code to run the function at the end of the script."		<< std::endl
 																																																													<< std::endl
 				 	<< YELLOW_BG << "Exit codes:" << COLOR_RESET																																													<< std::endl
