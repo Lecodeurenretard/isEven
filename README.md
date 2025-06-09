@@ -79,13 +79,13 @@ def is_even(n : int) -> bool:
 ________
 
 <a name="second-ex"></a> 
-`mk_isEven 90 50`
+`mk_isEven 90 50`  
 Result (isEven.py):
 ```
 import sys
 
 def is_even(n : int) -> bool:
-	"""Checks if the number is even, n must be below 3."""
+	"""Checks if the number is even, n must be below 89."""
 	n = abs(int(n))
 
 	if(n == 0):
